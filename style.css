@@ -1,0 +1,263 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+div {
+  scroll-behavior: smooth;
+}
+.container-1 {
+  background-image: url("./img/tamalsen-home-cover.jpg");
+  height: 740px;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.transparent {
+  background-color: transparent !important;
+  border: none;
+  box-shadow: none;
+}
+.navbar-items {
+  display: flex;
+  justify-content: center;
+}
+.navbar-light {
+  color: white;
+  font-weight: bolder;
+  font-size: 1.1rem;
+  padding: 0 10px 0 10px !important;
+}
+.navbar-brand:hover {
+  color: aqua;
+}
+.nav-link:hover {
+  color: aqua;
+}
+.name {
+  color: rgb(0, 136, 255);
+  font-size: 2rem;
+  font-weight: bolder;
+}
+.dots {
+  color: blueviolet;
+}
+.name-area {
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding-top: 50vh;
+}
+.name-area h1 {
+  text-align: center;
+  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+.my-links i {
+  color: white;
+  font-size: 2rem;
+  padding: 20px;
+}
+.my-links i:hover {
+  color: aqua;
+}
+.resume-area button {
+  list-style: none;
+  text-decoration: none;
+  margin: 10px;
+  font-size: 1.1rem;
+  width: 110px;
+  height: 50px;
+  border-radius: 30px;
+  border-color: aqua;
+  background: transparent;
+  color: white;
+}
+.resume-area button:hover {
+  border-color: rgb(47, 235, 0);
+}
+.resume-area button a {
+  color: white;
+}
+.container-2 {
+  scroll-behavior: smooth;
+  height: 600px;
+  background-image: url("./img/Untitled\ design\(2\).png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  padding-top: 50px;
+}
+.container-2 h1 {
+  padding-top: 20px;
+  font-size: 3.5rem;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+.container-2 p {
+  padding-top: 20px;
+  text-align: center;
+  color: rgb(163, 163, 163) !important;
+  font-weight: bold;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+}
+.container-2 span,
+.problem-solving-desc span {
+  color: red;
+}
+.container-3 {
+  height: 800px;
+  background-image: url("./img/Untitled\ design\(2\).png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+}
+.container-3-p1 {
+  width: 50%;
+  height: 100%;
+  background-color: #25242c;
+  padding-left: 10%;
+}
+.works {
+  height: 25%;
+}
+.works h1 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.works p {
+  color: rgb(220, 220, 220);
+  font-size: 1.4rem;
+}
+.card-left-down,
+.card-right {
+  width: 90% !important;
+  border-radius: 10px;
+  border: 0.3px solid rgb(168, 168, 168);
+}
+.card-body-left,
+.card-body-right {
+  background-color: #25242c;
+  color: white;
+  border-radius: 0 0 10px 10px;
+}
+.card-text span {
+  color: aqua;
+}
+.container-3-p2 {
+  width: 50%;
+  height: 100%;
+  background-color: #25242c;
+  padding-right: 10%;
+}
+.projects-right-down {
+  margin-top: 60px;
+}
+.container-4 {
+  height: 700px;
+  background-image: url("./img/exterpise\ bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding-bottom: 20px;
+}
+.container-4 h1,
+.problem-solving-desc h1,
+.container-6 h1 {
+  padding-bottom: 50px;
+  font-size: 3.5rem;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.expertise {
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  grid-template-rows: 150px 150px 150px;
+  row-gap: 30px;
+  column-gap: 30px;
+  align-items: center;
+}
+.expertise img {
+  width: 160px;
+  height: 100px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgb(184, 184, 184);
+}
+.container-5 {
+  height: 600px;
+  background-image: url("./img/Untitled\ design\(2\).png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.problem-solving-desc {
+  width: 50%;
+}
+.problem-solving-desc p {
+  color: rgb(170, 167, 167);
+  font-weight: bold;
+}
+.pro-card {
+  border: none;
+  box-shadow: 3px 3px 20px rgb(0, 255, 204);
+}
+.container-6 {
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: black;
+  color: white;
+}
+.hire-opper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.text-hire {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+.text-hire h2 {
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.text-hire p,
+.info-detail {
+  font-size: 1.3rem;
+  font-family: sans-serif;
+  padding-top: 40px;
+}
+.underline-text {
+  color: blueviolet;
+}
