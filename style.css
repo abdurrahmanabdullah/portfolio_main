@@ -92,7 +92,7 @@ div {
 }
 .container-2 {
   scroll-behavior: smooth;
-  height: 600px;
+  height: 400px;
   background-image: url("./img/Untitled\ design\(2\).png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -170,7 +170,7 @@ div {
   margin-top: 60px;
 }
 .container-4 {
-  height: 700px;
+  height: 500px;
   background-image: url("./img/exterpise\ bg.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -179,7 +179,7 @@ div {
   justify-content: center;
   align-items: center;
   color: white;
-  padding-bottom: 20px;
+  padding-top: 100px;
 }
 .container-4 h1,
 .problem-solving-desc h1,
@@ -207,7 +207,7 @@ div {
   box-shadow: 5px 5px 10px rgb(184, 184, 184);
 }
 .container-5 {
-  height: 600px;
+  height: 950px;
   background-image: url("./img/Untitled\ design\(2\).png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -217,7 +217,7 @@ div {
   align-items: center;
 }
 .problem-solving-desc {
-  width: 50%;
+  width: 40%;
 }
 .problem-solving-desc p {
   color: rgb(170, 167, 167);
@@ -260,4 +260,10 @@ div {
 }
 .underline-text {
   color: blueviolet;
+}
+
+/* Add this to your style.css */
+
+.problem-solve {
+    margin-right: 145px;
 }
