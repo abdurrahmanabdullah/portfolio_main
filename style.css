@@ -53,7 +53,7 @@ div {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  padding-top: 50vh;
+  padding-top: 15vh;
 }
 .name-area h1 {
   text-align: center;
@@ -134,7 +134,7 @@ div {
   padding-left: 10%;
 }
 .works {
-  height: 25%;
+  height: 15%;
 }
 .works h1 {
   font-size: 2.2rem;
@@ -192,6 +192,13 @@ div {
   text-align: center;
 }
 
+.problem-solving-section {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bolder;
+  text-transform: uppercase;
+  text-align: center;
+}
+
 .expertise {
   display: grid;
   grid-template-columns: 200px 200px 200px;
@@ -207,12 +214,14 @@ div {
   box-shadow: 5px 5px 10px rgb(184, 184, 184);
 }
 .container-5 {
-  height: 950px;
+  /* height: 950px; */
+  height: 60rem;
   background-image: url("./img/Untitled\ design\(2\).png");
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
   display: flex;
+
   justify-content: space-evenly;
   align-items: center;
 }
@@ -224,46 +233,43 @@ div {
   font-weight: bold;
 }
 .pro-card {
-  border: none;
-  box-shadow: 3px 3px 20px rgb(0, 255, 204);
-}
-.container-6 {
-  height: 600px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  background-color: black;
-  color: white;
-}
-.hire-opper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.text-hire {
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-}
-.text-hire h2 {
-  font-size: 2.5rem;
-  text-transform: capitalize;
-  font-weight: bold;
-}
-.text-hire p,
-.info-detail {
-  font-size: 1.3rem;
-  font-family: sans-serif;
-  padding-top: 40px;
-}
-.underline-text {
-  color: blueviolet;
-}
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px;
+  .container-6 {
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: black;
+    color: white;
+  }
+  .hire-opper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .text-hire {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
+  .text-hire h2 {
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+  .text-hire p,
+  .info-detail {
+    font-size: 1.3rem;
+    font-family: sans-serif;
+    padding-top: 40px;
+  }
+  .underline-text {
+    color: blueviolet;
+  }
 
-/* Add this to your style.css */
-
-.problem-solve {
-    margin-right: 145px;
+  .problem-solving-block {
+  }
 }
