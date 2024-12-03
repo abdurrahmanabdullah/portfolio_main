@@ -192,7 +192,7 @@ div {
   justify-content: center;
   align-items: center;
   color: white;
-  padding-top: 60px;
+  padding-top: 100px;
 }
 .container-4 h1,
 .problem-solving-desc h1,
@@ -219,6 +219,7 @@ div {
   row-gap: 30px;
   column-gap: 30px;
   align-items: center;
+  margin-bottom: 5%;
 }
 .expertise img {
   width: 160px;
