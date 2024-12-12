@@ -9,6 +9,9 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+     <!-- Add Boxicons Library -->
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons/css/boxicons.min.css" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -16,7 +19,10 @@
     <link rel="stylesheet" href="style.css" />
     <title>Abdullah- Software Engineer</title>
   </head>
+ 
+
   <body>
+     <div id="top"></div>
     <div class="container-1 section">
       <nav class="navbar navbar-expand-lg bg-body-tertiary transparent">
         <div class="container-fluid">
@@ -246,7 +252,7 @@
             />
             <div class="card-body card-body-right">
               <h3 class="card-title">
-                Hidayah Ads Management
+                 Ads Management System
                 <a
                   href="https://github.com/abdurrahmanabdullah/q_ad_auto_refresh.git"
                   ><i class="fa fa-github"></i
@@ -254,9 +260,7 @@
               </h3>
               <hr />
               <p class="card-text" style="text-align: justify">
-                The Android app system you described includes a management
-                feature that allows users to upload three types of ads: image,
-                video with thumbnail, and embeddable video.
+                The Android app system features a versatile ad management solution that supports various ad types, including image ads, video ads with thumbnails, embeddable video ads, cloud-hosted ads for seamless accessibility, and pendrive-based ads for offline or portable usage. This comprehensive functionality ensures flexibility and convenience in managing and displaying ads across diverse formats and platforms.
                 <span>Languages used: </span> Flutter , Python and
                 framework-flask, PostgreSQL and MySQL
               </p>
@@ -340,36 +344,110 @@
     </div>  -->
 
     <div class="container-4 section" id="contact">
-      <h1 class="text-center">Get in touch</h1>
+      
+
+
+
+
+
+
       <div style="margin-top: 3%;" class="row hire-opper">
-        <div class="col-md-6 text-hire">
-          <h2>Available for Work Opportunity</h2>
-          <p>
-            I have more than one year of app development experience and possess
-            a high capability for working both onsite and remotely.
-          </p>
-        </div>
-        <div class="col-md-6 info-detail text-end">
-          <h3>Contact Me by Email!</h3>
-          <a
-            href="mailto:abdullah19303034@gmail.com"
-            class="underline-text"
-            style="
-              color: blueviolet;
-              text-decoration: underline;
-              font-size: 19px;
-            "
-            >abdullah19303034@gmail.com</a
-          >
-        </div>
+<h1 style="text-align: center; margin-bottom: 2%;">Get In Touch</h1>
+        <!-- --------------------- -->
+<section style="padding-left: 15%;"   class="contact">
+  
+  <!-- Left Side: Text and Contact Info -->
+  <div class="contact-text">
+    <h2>Contact <span>Me!</span></h2>
+    <p>If you have any project in your mind.</p>
+    <p>
+      I'm a App and Web Developer - creating bold & brave interface design for
+      companies all across the world.
+    </p>
+    <ul class="contact-info">
+      <li>+88 01794649556</li>
+      <li><a href="mailto:mdnibir178@gmail.com">abdullah19303034@gmail.com</a></li>
+     
+    </ul>
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank" class="social-icon">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://twitter.com" target="_blank" class="social-icon">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://wa.me/+8801794649556" target="_blank" class="social-icon">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Right Side: Contact Form -->
+  <div class="contact-form">
+    <form action="#">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <input type="tel" placeholder="Your Mobile Number" required />
+      <textarea placeholder="How Can I Help You?" required></textarea>
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+  </div>
+</section>
+
+
+
+<!-- --------------------- -->
+       <!---------End Section---------->
+<section class="end">
+  <div class="last-text">
+    <h2 style="color: #00aaff;">Design By Abdullah</h2>
+
+  </div>
+  <div class="top">
+    <a href="#top"><i class="bx bx-up-arrow-alt"></i></a>
+  </div>
+</section>
+
+
+
+
+
+
+<script>
+	const header = document.querySelector('.site-header');
+	const headerHeight = header.offsetHeight;
+	
+	window.addEventListener('scroll', () => {
+	  if (window.scrollY > headerHeight) {
+		header.classList.add('scrolled');
+	  } else {
+		header.classList.remove('scrolled');
+	  }
+	});
+	
+	</script>
+       
       </div>
     </div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-  <script src="app.js"></script>
+    <!-- External Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+        crossorigin="anonymous"></script>
+
+<script>
+  document.querySelector('.bx-up-arrow-alt').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector('#top').scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+</script>
+
+
+
+
+<!-- Your Custom JS File -->
+<script src="app.js"></script>
+  
 </html>

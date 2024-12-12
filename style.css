@@ -190,9 +190,9 @@ div {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   color: white;
-  padding-top: 100px;
+  /* padding-top: 100px; */
 }
 .container-4 h1,
 .problem-solving-desc h1,
@@ -246,49 +246,7 @@ div {
   color: rgb(170, 167, 167);
   font-weight: bold;
 }
-/* .pro-card {
-  border-radius: 10px;
-  box-shadow: 5px 5px 10px;
-  .container-6 {
-    height: 600px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: black;
-    color: white;
-  }
-  .hire-opper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .text-hire {
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-  }
-  .text-hire h2 {
-    font-size: 2.5rem;
-    text-transform: capitalize;
-    font-weight: bold;
-  }
-  .text-hire p,
-  .info-detail {
-    font-size: 1.3rem;
-    font-family: sans-serif;
-    padding-top: 40px;
-  }
-  .underline-text {
-    color: blueviolet;
-  }
 
-  .problem-solving-block {
-  }
-} */
-
-/* Add this CSS to style.css or within a <style> tag in your HTML file */
 
 /* Make card titles responsive on medium and small screens */
 @media (max-width: 768px) {
@@ -319,4 +277,191 @@ div {
     width: 100%; /* Ensure image fits the card width */
     height: auto; /* Adjust height for responsive image */
   }
+}
+
+/* ////--------------------- */
+/* General Contact Section Styling */
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+  align-items: start;
+  /* padding: 50px 20px; */
+  
+  color: #fff;
+}
+
+.contact-text {
+  max-width: 500px;
+}
+
+.contact-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.contact-text h2 span {
+  color: #00aaff;
+}
+
+.contact-text p {
+  font-size: 1rem;
+  margin: 10px 0;
+  line-height: 1.8;
+}
+
+.contact-info {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.contact-info li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.contact-info a {
+  color: #00aaff;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-icons a {
+  text-decoration: none;
+}
+
+.social-icon {
+  color: #fff;
+  font-size: 1.5rem;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.social-icon:hover {
+  background-color: #00aaff;
+  color: #fff;
+}
+
+/* Contact Form Styling */
+.contact-form {
+ 
+  width: 60%; /* Make the contact form take full width */
+  max-width: 80%; /* Optional: Limit the maximum width for responsiveness */
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column; /* Ensures items align vertically */
+
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  background-color: #333;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #aaa;
+}
+
+.contact-form textarea {
+  resize: none;
+  height: 100px;
+}
+
+.submit-btn {
+   align-self: flex-start; /* Aligns the button to the left */
+  background-color: #00aaff;
+  color: #fff;
+  border: none;
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0088cc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-text {
+    text-align: center;
+  }
+}
+
+
+
+.end {
+  padding: 20px 15%;
+  display: flex;
+  flex-wrap: wrap;
+  /* align-items: center; */
+  justify-content: space-between;
+  gap: 2rem;
+  background: #222; /* Replace var(--bg-color) with actual value */
+}
+
+.last-text p {
+  color: #aaa; /* Replace var(--second-color) with actual value */
+  font-size: 14px;
+}
+
+.top a {
+  text-decoration: none;
+}
+
+.top i {
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #fff; /* Replace var(--text-color) with actual value */
+  background: #00aaff; /* Replace var(--main-color) with actual value */
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.top i:hover {
+  background: #0088cc; /* Hover effect color */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+.row > * {
+    flex-shrink: 0 !important;
 }
