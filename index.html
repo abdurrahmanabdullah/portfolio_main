@@ -7,28 +7,806 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-     <!-- Add Boxicons Library -->
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/boxicons/css/boxicons.min.css" rel="stylesheet" />
+      crossorigin="anonymous" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="stylesheet" href="style.css" />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons/css/boxicons.min.css"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      a {
+        text-decoration: none;
+      }
+      div {
+        scroll-behavior: smooth;
+      }
+      .container-1 {
+        background-image: url("./img/tamalsen-home-cover.jpg");
+        height: 800px;
+        width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      .transparent {
+        background-color: transparent !important;
+        border: none;
+        box-shadow: none;
+      }
+      .navbar-items {
+        display: flex;
+        justify-content: center;
+      }
+      .navbar-light {
+        color: white;
+        font-weight: bolder;
+        font-size: 1.1rem;
+        padding: 0 10px 0 10px !important;
+      }
+      .navbar-brand:hover {
+        color: aqua;
+      }
+      .nav-link:hover {
+        color: aqua;
+      }
+      .name {
+        color: rgb(0, 136, 255);
+        font-size: 2rem;
+        font-weight: bolder;
+      }
+      .dots {
+        color: blueviolet;
+      }
+      .name-area {
+        text-align: center;
+        color: white;
+        font-size: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding-top: 15vh;
+      }
+      .name-area h1 {
+        text-align: center;
+        font-size: 4rem;
+        display: flex;
+        justify-content: center;
+        font-family: "Ubuntu", sans-serif;
+        font-weight: bolder;
+        text-transform: uppercase;
+      }
+      .my-links i {
+        color: white;
+        font-size: 2rem;
+        padding: 20px;
+      }
+      .my-links i:hover {
+        color: aqua;
+      }
+      .resume-area button {
+        list-style: none;
+        text-decoration: none;
+        margin: 10px;
+        font-size: 1.1rem;
+        width: 110px;
+        height: 50px;
+        border-radius: 30px;
+        border-color: aqua;
+        background: transparent;
+        color: white;
+      }
+      .resume-area button:hover {
+        border-color: rgb(47, 235, 0);
+      }
+      .resume-area button a {
+        color: white;
+      }
+      .container-2 {
+        scroll-behavior: smooth;
+        height: auto;
+        background-image: url("./img/Untitled design(2).png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: white;
+        padding: 50px 20px;
+      }
+      .container-2 h1 {
+        padding-top: 20px;
+        font-size: 2rem;
+        font-family: "Ubuntu", sans-serif;
+        font-weight: bolder;
+        text-transform: uppercase;
+        text-align: center;
+      }
+      .container-2 p {
+        padding-top: 20px;
+        text-align: center;
+        color: rgb(163, 163, 163) !important;
+        font-weight: bold;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        font-size: 20px;
+      }
+      .container-2 span,
+      .problem-solving-desc span {
+        color: red;
+      }
+      .container-3 {
+        background-image: url("./img/Untitled design(2).png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: white;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        padding: 0 50px;
+      }
+
+      /* Small screens (e.g., phones) */
+      @media (max-width: 576px) {
+        .container-3 {
+          padding: 10px;
+        }
+      }
+
+      .container-3-p1,
+      .container-3-p2 {
+        width: 50%;
+        height: 100%;
+        background-color: #25242c;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      .works {
+        height: 15%;
+        padding: 20px;
+        text-align: center;
+      }
+      .works h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        margin-bottom: 15px;
+      }
+      .works p {
+        color: rgb(220, 220, 220);
+        font-size: 1.4rem;
+      }
+      .card {
+        width: 100% !important;
+        border-radius: 10px;
+        border: 0.3px solid rgb(168, 168, 168);
+        margin-bottom: 20px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .card-img-top {
+        width: 100%;
+        height: 400px;
+        object-fit: fit;
+        border-radius: 10px 10px 0 0;
+        /* Optional: fill empty space if image doesn't cover area */
+        padding: 10px; /* Optional: for spacing around the image */
+      }
+
+      .card-body {
+        background-color: #25242c;
+        color: white;
+        border-radius: 0 0 10px 10px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .card-text {
+        flex-grow: 1;
+      }
+      .card-text span {
+        color: aqua;
+      }
+      .projects-right-down {
+        margin-top: 20px;
+      }
+
+      .container-41 {
+        background-image: url("./img/exterpise bg.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        padding: 100px 20px;
+      }
+      .top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 999;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        /* Ensure it's visible on all screens */
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 170, 255, 0.7); /* Semi-transparent background */
+        border-radius: 50%; /* Circular shape */
+      }
+
+      .top:hover {
+        transform: scale(1.1);
+        background: rgba(0, 170, 255, 0.9); /* More opaque on hover */
+      }
+
+      .top img {
+        width: 30px; /* Slightly smaller image to fit better */
+        height: 30px;
+        filter: brightness(0) invert(1); /* Makes the rocket white */
+      }
+
+      /* For very small screens, adjust position */
+      @media (max-width: 576px) {
+        .top {
+          bottom: 15px;
+          right: 15px;
+          width: 45px;
+          height: 45px;
+        }
+
+        .top img {
+          width: 25px;
+          height: 25px;
+        }
+      }
+      .container-42 {
+        background-image: url("./img/exterpise bg.png");
+        /* background-size: cover; */
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        padding: 50px 20px;
+        text-align: center;
+      }
+      .container-4 {
+        background-image: url("./img/exterpise bg.png");
+        background-size: cover;
+
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: white;
+        padding: 50px 20px;
+      }
+      .container-4 h1,
+      .problem-solving-desc h1,
+      .container-6 h1 {
+        padding-bottom: 20px;
+        font-size: 2rem;
+        font-family: "Ubuntu", sans-serif;
+        font-weight: bolder;
+        text-transform: uppercase;
+        text-align: center;
+      }
+      .problem-solving-section {
+        font-family: "Ubuntu", sans-serif;
+        font-weight: bolder;
+        text-transform: uppercase;
+        text-align: center;
+      }
+      .expertise {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        gap: 20px;
+        align-items: stretch;
+        margin-bottom: 5%;
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .expertise img {
+        width: 100%;
+        height: 180px;
+
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px rgb(184, 184, 184);
+        padding: 10px;
+        /* Optional but helps with transparent images */
+        display: flex; /* Removes bottom whitespace in some cases */
+      }
+
+      .container-5 {
+        height: auto;
+        background-image: url("./img/Untitled design(2).png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: white;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 50px 20px;
+      }
+      .problem-solving-desc {
+        width: 100%;
+        padding: 20px;
+      }
+      .problem-solving-desc p {
+        color: rgb(170, 167, 167);
+        font-weight: bold;
+        text-align: center;
+      }
+      .problem-solving-block {
+        margin-top: 5%;
+        background: linear-gradient(to right, #1f1f1f, #2e2e2e);
+        padding: 20px;
+        border-radius: 12px;
+        width: 100%;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+      .problem-solving-block h2 {
+        margin-bottom: 20px;
+        text-align: center;
+        color: #ffffff;
+        font-size: 32px;
+        font-weight: bold;
+      }
+      .problem-solving-block p {
+        text-align: justify;
+        color: #cccccc;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 1.7;
+      }
+      .problem-solving-block {
+        background: linear-gradient(135deg, #0e1718, #465354);
+        /* Alternative options: */
+        /* background: linear-gradient(135deg, #29393B, #4F9DA6); */
+        /* background: linear-gradient(135deg, #29393B, #5DB7C5); */
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        color: white;
+        margin: 20px 0;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .section-header h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #fff;
+      }
+
+      .section-header h2 i {
+        color: #f1c40f;
+        margin-right: 15px;
+      }
+
+      .header-decoration {
+        width: 80px;
+        height: 4px;
+
+        margin: 0 auto;
+        border-radius: 2px;
+      }
+
+      .problem-solving-content {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+      }
+
+      .problem-solving-image {
+        flex: 1;
+        text-align: center;
+      }
+
+      .problem-solving-image img {
+        max-width: 250px;
+        filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+      }
+
+      .problem-solving-text {
+        flex: 1.5;
+      }
+
+      .problem-solving-text p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        position: relative;
+        padding-left: 35px;
+      }
+
+      .problem-solving-text p i {
+        color: #f1c40f;
+        position: absolute;
+        left: 0;
+        top: 5px;
+        font-size: 1.3rem;
+      }
+
+      .skills-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 30px;
+      }
+
+      .badge {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .badge i {
+        margin-right: 8px;
+        color: #f1c40f;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 992px) {
+        .problem-solving-content {
+          flex-direction: column;
+        }
+
+        .problem-solving-image img {
+          max-width: 200px;
+          margin-bottom: 30px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .problem-solving-block {
+          padding: 30px 20px;
+        }
+
+        .section-header h2 {
+          font-size: 2rem;
+        }
+
+        .problem-solving-text p {
+          font-size: 1rem;
+          padding-left: 30px;
+        }
+
+        .badge {
+          font-size: 0.8rem;
+        }
+      }
+      /* ==================== Contact Section Styles ==================== */
+      .contact-container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .contact-info-section {
+        width: 45%;
+        padding: 20px;
+      }
+
+      .contact-form-section {
+        width: 50%;
+        padding: 20px;
+      }
+
+      .contact-text h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-align: left;
+      }
+
+      .contact-text p {
+        text-align: left;
+        margin-bottom: 20px;
+        color: rgb(163, 163, 163);
+        font-weight: bold;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+
+      .contact-info {
+        text-align: left;
+        padding-left: 0;
+        margin: 20px 0;
+      }
+
+      .contact-info li {
+        margin-bottom: 15px;
+        list-style-type: none;
+        font-size: 1.1rem;
+        color: #ffffff;
+      }
+
+      .contact-info i {
+        margin-right: 10px;
+        color: #00aaff;
+        width: 20px;
+        text-align: center;
+      }
+
+      .contact-info a {
+        color: #00aaff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .contact-info a:hover {
+        color: #0088cc;
+        text-decoration: underline;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: flex-start;
+        gap: 15px;
+        margin-top: 30px;
+      }
+
+      .social-icon {
+        color: #fff;
+        font-size: 1.5rem;
+        background-color: #333;
+        padding: 12px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .social-icon:hover {
+        background-color: #00aaff;
+        color: #fff;
+        transform: translateY(-3px);
+      }
+
+      .contact-form {
+        width: 100%;
+        padding: 20px;
+        border-radius: 8px;
+      }
+
+      .contact-form form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 15px;
+        background-color: #333;
+        border: none;
+        border-radius: 8px;
+        color: #fff;
+        font-size: 1rem;
+        outline: none;
+        transition: all 0.3s ease;
+      }
+
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        box-shadow: 0 0 0 2px #00aaff;
+      }
+
+      .contact-form input::placeholder,
+      .contact-form textarea::placeholder {
+        color: #aaa;
+      }
+
+      .contact-form textarea {
+        resize: none;
+        height: 150px;
+      }
+
+      .submit-btn {
+        background-color: #00aaff;
+        color: #fff;
+        border: none;
+        padding: 15px;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        width: 40%;
+      }
+
+      /* For small screens (phones, etc.) */
+      @media (max-width: 576px) {
+        .submit-btn {
+          width: 100%;
+        }
+      }
+
+      .submit-btn:hover {
+        background-color: #0088cc;
+      }
+
+      .end {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        background: #222;
+      }
+
+      .last-text p {
+        color: #aaa;
+        font-size: 14px;
+        text-align: center;
+      }
+
+      /* ==================== Mobile Responsiveness ==================== */
+      @media (max-width: 1200px) {
+        .container-3-p1,
+        .container-3-p2 {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .expertise {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .name-area h1 {
+          font-size: 3rem;
+        }
+        .container-1 {
+          height: auto;
+          padding-bottom: 50px;
+        }
+        .container-2 p {
+          font-size: 16px;
+        }
+        .card-title {
+          font-size: 1.2rem;
+        }
+        .card-text {
+          font-size: 0.9rem;
+        }
+
+        /* Contact section mobile styles */
+        .contact-container {
+          flex-direction: column;
+        }
+
+        .contact-info-section,
+        .contact-form-section {
+          width: 100%;
+          padding: 10px;
+        }
+
+        .contact-text h2,
+        .contact-text p {
+          text-align: center;
+        }
+
+        .contact-info {
+          text-align: center;
+        }
+
+        .social-icons {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .name-area h1 {
+          font-size: 2.5rem;
+        }
+        .my-links i {
+          font-size: 1.5rem;
+          padding: 10px;
+        }
+        .resume-area button {
+          width: 90px;
+          height: 40px;
+          font-size: 0.9rem;
+        }
+        .expertise {
+          grid-template-columns: 1fr;
+        }
+        .contact-text h2 {
+          font-size: 2rem;
+        }
+        .problem-solving-block h2 {
+          font-size: 1.5rem;
+        }
+        .problem-solving-block p {
+          font-size: 1rem;
+        }
+      }
+
+      /* Navbar adjustments for mobile */
+      @media (max-width: 768px) {
+        .navbar-items {
+          justify-content: flex-start;
+        }
+        .navbar-collapse {
+          background-color: rgba(0, 0, 0, 0.9);
+          padding: 15px;
+          border-radius: 5px;
+        }
+        .navbar-toggler {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+
+      /* Ensure images don't overflow */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Adjust card layout for mobile */
+      @media (max-width: 768px) {
+        .card {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      /* Text readability on small screens */
+      body {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      @media (max-width: 768px) {
+        body {
+          font-size: 14px;
+        }
+      }
+    </style>
     <title>Abdullah- Software Engineer</title>
   </head>
- 
 
   <body>
-     <div id="top"></div>
+    <div id="top"></div>
     <div class="container-1 section">
       <nav class="navbar navbar-expand-lg bg-body-tertiary transparent">
         <div class="container-fluid">
-          <a class="navbar-brand name" href="#"
-            >Abdullah <span class="dots">._</span></a
-          >
+          <!-- <a class="navbar-brand name" href="#">Abdullah</a> -->
           <button
             class="navbar-toggler"
             type="button"
@@ -36,8 +814,7 @@
             data-bs-target="#navbarNav"
             aria-controls="navbarNav"
             aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+            aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse navbar-items" id="navbarNav">
@@ -57,7 +834,7 @@
                 <a class="nav-link navbar-light" href="#work">My Works</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link navbar-light" href="#problem-solving"
+                <a class="nav-link navbar-light" href="#problem-solving-block"
                   >Problem solving</a
                 >
               </li>
@@ -74,20 +851,17 @@
           <a href="https://github.com/abdurrahmanabdullah"
             ><i class="fa fa-github"></i
           ></a>
-          <a
-            href="https://www.linkedin.com/in/abdur-rahman-bba088183/
-"
+          <a href="https://www.linkedin.com/in/abdur-rahman-bba088183/"
             ><i class="fa fa-linkedin-square"></i
           ></a>
         </div>
         <div class="resume-area">
           <button>
             <a
-              href="https://drive.google.com/file/d/1wZ1l1jGV_e9Cut_xcBfRSO-Qu18NcTQz/view?usp=sharing"
-            >
+              href="https://drive.google.com/file/d/1PfIGkieeGxuDg6MCuu9rtiu07rrWB7Fh/view?usp=sharing">
               Resume
-              <i class="fa fa-download"></i
-            ></a>
+              <i class="fa fa-download"></i>
+            </a>
           </button>
           <button>Contact</button>
         </div>
@@ -114,33 +888,39 @@
     </div>
 
     <div class="container-41 section" id="expertise">
-      
-      <h1 class="jumbotron-heading about">My Expertise</h1>
+      <h1 class="jumbotron-heading about" style="margin-bottom: 50px">
+        My Expertise
+      </h1>
+
       <div class="expertise">
-        <img src="./img/js.png" alt="" />
-        <img src="./img/c++.png" alt="" />
-        <img src="./img/flutter.jpg" alt="" />
-        <img src="./img/react1.jpg" alt="" />
-        <img src="./img/strapi.jpg" alt="" />
-        <img src="./img/mysql.png" alt="" />
-        <img src="./img/wordpress.png" alt="" />
+        <img src="./img/js.png" alt="JavaScript" />
+        <img src="./img/c++.png" alt="C++" />
+        <img src="./img/flutter.jpg" alt="Flutter" />
+        <img src="./img/react1.jpg" alt="React" />
+        <img src="./img/nextjs.jpg" alt="Next.js" />
+        <img src="./img/strapi.jpg" alt="Strapi" />
+        <img src="./img/mysql.png" alt="MySQL" />
+        <img src="./img/postgres.jpg" alt="PostgreSQL" />
+        <img src="./img/wordpress.png" alt="WordPress" />
+      </div>
+    </div>
+
+    <div class="container-42 section" id="expertise">
+      <div class="works" style="margin-bottom: 20px">
+        <h1 class="" style="text-align: center">Latest Project</h1>
+        <p>Here are some creative works that I have worked</p>
       </div>
     </div>
 
     <div class="container-3 section" id="work">
       <div class="container-3-p1">
-        <div class="works">
-          <h1> Latest  Project</h1>
-          <p>Here are some creative works that I have worked</p>
-        </div>
         <div class="projects">
-          <div class="card card-left-down" style="width: 18rem">
+          <div class="card" style="width: 18rem">
             <img
               class="card-img-top"
               src="./img/quing1.png"
-              alt="Card image cap"
-            />
-            <div class="card-body card-body-left">
+              alt="Queuing Management System" />
+            <div class="card-body">
               <h3 class="card-title">
                 Queuing Management System
                 <a href="https://github.com/abdurrahmanabdullah/Q_bot.git"
@@ -160,76 +940,73 @@
             </div>
           </div>
 
-          <div class="card card-right" style="width: 18rem; margin-top: 5%">
-            <div>
-              <img
-                class="card-img-top"
-                src="./img/nurse_call.png"
-                alt="Card image cap"
-              />
-
-              <div class="card-body card-body-right">
-                <h3 class="card-title">
-                  Nurse Calling Management System &nbsp;<a
-                    href="https://github.com/abdurrahmanabdullah/QNurse-management-system"
-                    ><i class="fa fa-github"></i
-                  ></a>
-                </h3>
-
-                <hr />
-                <p class="card-text" style="text-align: justify">
-                  Built a real-time Nurse Call app with Strapi backend and
-                  Flutter mobile, featuring WebSocket-based live updates and
-                  custom sound notifications. Includes detailed wait-time
-                  tracking for efficient patient care.
-                  <span>Languages used: </span> Strapi, Flutter, MySQL
-                  ,ESP32(Hardware Device)
-                </p>
-              </div>
+          <div class="card" style="width: 18rem; margin-top: 20px">
+            <img
+              class="card-img-top"
+              src="./img/nurse_call.png"
+              alt="Nurse Calling Management System" />
+            <div class="card-body">
+              <h3 class="card-title">
+                Nurse Calling Management System &nbsp;<a
+                  href="https://github.com/abdurrahmanabdullah/QNurse-management-system"
+                  ><i class="fa fa-github"></i
+                ></a>
+              </h3>
+              <hr />
+              <p class="card-text" style="text-align: justify">
+                Built a real-time Nurse Call app with Strapi backend and Flutter
+                mobile, featuring WebSocket-based live updates and custom sound
+                notifications. Includes detailed wait-time tracking for
+                efficient patient care.
+                <span>Languages used: </span> Strapi, Flutter, MySQL
+                ,ESP32(Hardware Device)
+              </p>
             </div>
           </div>
- <div class="card card-right" style="width: 18rem; margin-top: 5%">
-            <div>
-              <img
-                class="card-img-top"
-                src="./img/website.png"
-                alt="Card image cap"
-              />
 
-              <div class="card-body card-body-right">
-                <h3 class="card-title">
-                  Qversebd Website  &nbsp;<a href="https://qversebd.com" target="_blank" rel="noopener noreferrer">
-  <i class="fa fa-link"></i>
-</a>
-                </h3>
-
-                <hr />
-                <p class="card-text" style="text-align: justify">
-                 Developed a dynamic WordPress website using the Divi theme, incorporating advanced animations, embedded YouTube videos, interactive features, and seamless social media integration. Enhanced user engagement with custom design elements and cutting-edge functionalities.
-                  <span>Skills Applied: </span> WordPress Development (Divi Theme), <span>Website Hosting Management</span> (cPanel)
-                  
-                </p>
-              </div>
+          <div class="card" style="width: 18rem; margin-top: 20px">
+            <img
+              class="card-img-top"
+              src="./img/website.png"
+              alt="Qversebd Website" />
+            <div class="card-body">
+              <h3 class="card-title">
+                Qversebd Website &nbsp;<a
+                  href="https://qversebd.com"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <i class="fas fa-globe" style="font-size: 18px"></i>
+                </a>
+              </h3>
+              <hr />
+              <p class="card-text" style="text-align: justify">
+                Developed a dynamic WordPress website using the Divi theme,
+                incorporating advanced animations, embedded YouTube videos,
+                interactive features, and seamless social media integration.
+                Enhanced user engagement with custom design elements and
+                cutting-edge functionalities.
+                <span>Skills Applied: </span> WordPress Development (Divi
+                Theme), <span>Website Hosting Management</span> (cPanel)
+              </p>
             </div>
           </div>
-         
         </div>
       </div>
+
       <div class="container-3-p2">
         <div class="projects">
-          <div class="card card-right" style="width: 18rem">
+          <div class="card" style="width: 18rem">
             <img
               class="card-img-top"
               src="./img/ecom.png"
-              alt="Card image cap"
-            />
-            <div class="card-body card-body-right">
+              alt="E-Commerce Website" />
+            <div class="card-body">
               <h3 class="card-title">
                 E-Commerce Website
                 <a
-                  href="https://github.com/abdurrahmanabdullah/E-commerce-project-React-Strapi-.git"
-                  ><i class="fa fa-github"></i
-                ></a>
+                  href="https://github.com/abdurrahmanabdullah/E-commerce-project-React-Strapi-.git">
+                  <i class="fa fa-github"></i>
+                </a>
               </h3>
               <hr />
               <p class="card-text" style="text-align: justify">
@@ -241,213 +1018,270 @@
               </p>
             </div>
           </div>
-        </div>
-        <div class="projects-right-down">
-          <div class="card card-right" style="width: 18rem">
+
+          <div class="card" style="width: 18rem; margin-top: 20px">
             <img
               class="card-img-top"
               src="./img/kiosk.png"
-              alt="Card image cap"
-              style="width: 100%; height: 250px"
-            />
-            <div class="card-body card-body-right">
+              alt="Ads Management System"
+              style="width: 100%; height: auto" />
+            <div class="card-body">
               <h3 class="card-title">
-                 Ads Management System
+                Ads Management System
                 <a
-                  href="https://github.com/abdurrahmanabdullah/q_ad_auto_refresh.git"
-                  ><i class="fa fa-github"></i
-                ></a>
+                  href="https://github.com/abdurrahmanabdullah/q_ad_auto_refresh.git">
+                  <i class="fa fa-github"></i>
+                </a>
               </h3>
               <hr />
               <p class="card-text" style="text-align: justify">
-                The Android app system features a versatile ad management solution that supports various ad types, including image ads, video ads with thumbnails, embeddable video ads, cloud-hosted ads for seamless accessibility, and pendrive-based ads for offline or portable usage. This comprehensive functionality ensures flexibility and convenience in managing and displaying ads across diverse formats and platforms.
+                The Android app system features a versatile ad management
+                solution that supports various ad types, including image ads,
+                video ads with thumbnails, embeddable video ads, cloud-hosted
+                ads for seamless accessibility, and pendrive-based ads for
+                offline or portable usage.
                 <span>Languages used: </span> Flutter , Python and
                 framework-flask, PostgreSQL and MySQL
               </p>
             </div>
           </div>
-        </div>
 
-        <div style="margin-left: 36%; margin-top: 5%" class="problem-solve"></div>
-         <div class="projects-right-down">
-          <div class="card card-right" style="width: 18rem">
-         <img class="card-img-top" src="./img/book.png" alt="Card image cap" />
-            <div class="card-body card-body-right">
+          <div class="card" style="width: 18rem; margin-top: 20px">
+            <img
+              class="card-img-top"
+              src="./img/book.png"
+              alt="Hidayah Ebooks" />
+            <div class="card-body">
               <h3 class="card-title">
                 Hidayah Ebooks &nbsp;
                 <a
-                  href="https://github.com/abdurrahmanabdullah/hidayah_islamic_book_store-main.git"
-                  ><i class="fa fa-github"></i
-                ></a>
+                  href="https://github.com/abdurrahmanabdullah/hidayah_islamic_book_store-main.git">
+                  <i class="fa fa-github"></i>
+                </a>
               </h3>
               <hr />
               <p class="card-text" style="text-align: justify">
-              It's an online E-Book reading platform. Only mobile users can read
-              books because the book extension is Epub. This project has 5
-              panels(Admin Panel, Translator panel, Author Panel, Publisher
-              panel, and User Panel). <span>Languages used: </span> Flutter ,
-              Python and framework-flask, PostgreSQL and MySQL
-            </p>
+                It's an online E-Book reading platform. Only mobile users can
+                read books because the book extension is Epub. This project has
+                5 panels(Admin Panel, Translator panel, Author Panel, Publisher
+                panel, and User Panel). <span>Languages used: </span> Flutter ,
+                Python and framework-flask, PostgreSQL and MySQL
+              </p>
+            </div>
+          </div>
+
+          <div class="card" style="width: 18rem; margin-top: 20px">
+            <img class="card-img-top" src="./img/jp.png" alt="JP-TRAVEL" />
+            <div class="card-body">
+              <h3 class="card-title">
+                JP-TRAVEL &nbsp;
+                <a
+                  href="https://github.com/yourusername/jp-travel-app"
+                  target="_blank">
+                  <i class="fa fa-github"></i>
+                </a>
+              </h3>
+              <hr />
+              <p class="card-text" style="text-align: justify">
+                JP-TRAVEL is a full-stack travel suggestion web and mobile
+                platform. Users can search for travel spots, view nearby
+                suggestions, like, love, and comment on locations. It includes
+                both user and admin features. The admin can upload, manage, and
+                organize spots from a secure dashboard.
+                <br /><br />
+                <span>Languages & Frameworks used:</span> TypeScript, Next.js,
+                Tailwind CSS (Frontend); Nest.js (Backend); PostgreSQL
+                (Database)
+              </p>
             </div>
           </div>
         </div>
-        <div style="margin-top: 5%" class="problem-solving-block">
-            <h2 style="margin-bottom: 2%; text-align: center">
-              Problem solving
-            </h2>
-
-            <p
-              style="
-                text-align: justify;
-                padding-right: 65px;
-                color: rgb(170, 167, 167);
-                font-weight: bold;
-                font-size: 18px;
-              "
-            >
-              I've contributed to diverse projects, from web and app development
-              to complex backend systems leveraging Strapi. My exceptional
-              debugging skills and strong problem-solving abilities enable me to
-              craft innovative, dynamic, and optimized solutions. At our
-              company, we build from scratch, delivering unique and cutting-edge
-              solutions that exceed expectations.
-            </p>
-          </div>
       </div>
-     
     </div>
 
-     <!-- <div class="container-5 section" id="problem-solving ">
-
-      <div style="margin-left: 36%; margin-top: 5%" class="problem-solve">
-        <div class="card pro-card" style="width: 43rem">
-          <img class="card-img-top" src="./img/book.png" alt="Card image cap" />
-          <div class="card-body card-body-right">
-            <h3 class="card-title">
-              Hidayah Ebooks &nbsp;<a
-                href="https://github.com/abdurrahmanabdullah/hidayah_islamic_book_store-main.git"
-                ><i class="fa fa-github"></i
-              ></a>
-            </h3>
-
-            <hr />
-            <p class="card-text" style="text-align: justify">
-              It's an online E-Book reading platform. Only mobile users can read
-              books because the book extension is Epub. This project has 5
-              panels(Admin Panel, Translator panel, Author Panel, Publisher
-              panel, and User Panel). <span>Languages used: </span> Flutter ,
-              Python and framework-flask, PostgreSQL and MySQL
+    <!-- <div class="container-42 section" id="problem-solving-block">
+      <div class="problem-solving-block">
+        <h2>Problem Solving</h2>
+        <p>
+          I've contributed to diverse projects, from web and app development to
+          complex backend systems leveraging Strapi. My exceptional debugging
+          skills and strong problem-solving abilities enable me to craft
+          innovative, dynamic, and optimized solutions. At our company, we build
+          from scratch, delivering unique and cutting-edge solutions that exceed
+          expectations.
+        </p>
+      </div>
+    </div> -->
+    <div class="container-42 section" id="problem-solving-block">
+      <div class="problem-solving-block">
+        <div class="section-header">
+          <h2>Problem Solving Approach</h2>
+          <div class="header-decoration"></div>
+        </div>
+        <div class="problem-solving-content">
+          <div class="problem-solving-image">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png"
+              alt="Problem Solving Illustration" />
+          </div>
+          <div class="problem-solving-text">
+            <p>
+              <i class="fas fa-check-circle"></i> I thrive on tackling complex
+              challenges across web, mobile, and backend systems, with
+              specialized expertise in Strapi implementations.
             </p>
+            <p>
+              <i class="fas fa-check-circle"></i> My debugging skills are
+              razor-sharp, allowing me to quickly identify and resolve even the
+              most obscure technical issues.
+            </p>
+            <p>
+              <i class="fas fa-check-circle"></i> I architect innovative
+              solutions from first principles, focusing on performance,
+              scalability, and maintainability.
+            </p>
+            <div class="skills-badges">
+              <span class="badge"
+                ><i class="fas fa-bolt"></i> Analytical Thinking</span
+              >
+              <span class="badge"
+                ><i class="fas fa-cogs"></i> System Design</span
+              >
+              <span class="badge"><i class="fas fa-bug"></i> Debugging</span>
+              <span class="badge"
+                ><i class="fas fa-rocket"></i> Optimization</span
+              >
+            </div>
           </div>
         </div>
       </div>
-    </div>  -->
+    </div>
 
     <div class="container-4 section" id="contact">
-      
+      <div class="row hire-opper" style="margin-top: 50px">
+        <h1 style="text-align: center; margin-bottom: 30px">Get In Touch</h1>
 
+        <div class="contact-container">
+          <div class="contact-info-section">
+            <div class="contact-text">
+              <h2>Contact <span>Me!</span></h2>
+              <p>If you have any project in your mind.</p>
+              <p>
+                I'm a App and Web Developer - creating bold & brave interface
+                design for companies all across the world.
+              </p>
+              <ul class="contact-info">
+                <li><i class="fas fa-phone"></i> +88 01794649556</li>
+                <li>
+                  <i class="fas fa-envelope"></i>
+                  <a href="mailto:abdullah19303034@gmail.com"
+                    >abdullah19303034@gmail.com</a
+                  >
+                </li>
+              </ul>
+              <div class="social-icons">
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  class="social-icon">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  class="social-icon">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a
+                  href="https://wa.me/+8801794649556"
+                  target="_blank"
+                  class="social-icon">
+                  <i class="fab fa-whatsapp"></i>
+                </a>
+                <a
+                  href="https://github.com/abdurrahmanabdullah"
+                  target="_blank"
+                  class="social-icon">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/abdur-rahman-bba088183/"
+                  target="_blank"
+                  class="social-icon">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </div>
+          </div>
 
+          <div class="contact-form-section">
+            <div class="contact-form">
+              <form action="#">
+                <input type="text" placeholder="Your Name" required />
+                <input type="email" placeholder="Your Email" required />
+                <input type="tel" placeholder="Your Mobile Number" required />
+                <textarea placeholder="How Can I Help You?" required></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
 
-
-
-
-      <div style="margin-top: 3%;" class="row hire-opper">
-<h1 style="text-align: center; margin-bottom: 2%;">Get In Touch</h1>
-        <!-- --------------------- -->
-<section style="padding-left: 15%;"   class="contact">
-  
-  <!-- Left Side: Text and Contact Info -->
-  <div class="contact-text">
-    <h2>Contact <span>Me!</span></h2>
-    <p>If you have any project in your mind.</p>
-    <p>
-      I'm a App and Web Developer - creating bold & brave interface design for
-      companies all across the world.
-    </p>
-    <ul class="contact-info">
-      <li>+88 01794649556</li>
-      <li><a href="mailto:mdnibir178@gmail.com">abdullah19303034@gmail.com</a></li>
-     
-    </ul>
-    <div class="social-icons">
-      <a href="https://facebook.com" target="_blank" class="social-icon">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="https://twitter.com" target="_blank" class="social-icon">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="https://wa.me/+8801794649556" target="_blank" class="social-icon">
-        <i class="fab fa-whatsapp"></i>
-      </a>
-    </div>
-  </div>
-
-  <!-- Right Side: Contact Form -->
-  <div class="contact-form">
-    <form action="#">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <input type="tel" placeholder="Your Mobile Number" required />
-      <textarea placeholder="How Can I Help You?" required></textarea>
-      <button type="submit" class="submit-btn">Send Message</button>
-    </form>
-  </div>
-</section>
-
-
-
-<!-- --------------------- -->
-       <!---------End Section---------->
-<section class="end">
-  <div class="last-text">
-    <h2 style="color: #00aaff;">Design By Abdullah</h2>
-
-  </div>
-  <div class="top">
-    <a href="#top"><i class="bx bx-up-arrow-alt"></i></a>
-  </div>
-</section>
-
-
-
-
-
-
-<script>
-	const header = document.querySelector('.site-header');
-	const headerHeight = header.offsetHeight;
-	
-	window.addEventListener('scroll', () => {
-	  if (window.scrollY > headerHeight) {
-		header.classList.add('scrolled');
-	  } else {
-		header.classList.remove('scrolled');
-	  }
-	});
-	
-	</script>
-       
+        <section class="end">
+          <div class="top">
+            <a href="#top">
+              <img
+                src="./img/rocket.png"
+                alt="Back to top"
+                width="50"
+                height="50" />
+            </a>
+          </div>
+        </section>
       </div>
     </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
 
-    <!-- External Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
-        crossorigin="anonymous"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Smooth scrolling for all links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+              behavior: "smooth",
+            });
+          });
+        });
 
-<script>
-  document.querySelector('.bx-up-arrow-alt').addEventListener('click', function(e) {
-    e.preventDefault();
-    document.querySelector('#top').scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
-</script>
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll(".nav-link");
+        const menuToggle = document.getElementById("navbarNav");
+        const bsCollapse = new bootstrap.Collapse(menuToggle, {
+          toggle: false,
+        });
 
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            if (window.innerWidth < 992) {
+              bsCollapse.hide();
+            }
+          });
+        });
 
-
-
-<!-- Your Custom JS File -->
-<script src="app.js"></script>
-  
+        // Add shadow to navbar on scroll
+        const header = document.querySelector(".navbar");
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 50) {
+            header.classList.add("scrolled");
+          } else {
+            header.classList.remove("scrolled");
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
