@@ -14,7 +14,6 @@ const CONFIG = {
   STATS_ANIMATION_DURATION: 30,
   MOBILE_BREAKPOINT: 768,
   EMAIL: "abdullah19303034@gmail.com",
-  BASE_URL: "/portfolio_main/",
 };
 
 // ==============================================
@@ -263,13 +262,16 @@ class NavigationManager {
 // ==============================================
 class Router {
   constructor() {
+    // Set your base path here
+    this.basePath = "/portfolio_main";
+
     this.routes = {
-      [CONFIG.BASE_URL]: "home",
-      [CONFIG.BASE_URL + "home"]: "home",
-      [CONFIG.BASE_URL + "about"]: "about",
-      [CONFIG.BASE_URL + "services"]: "expertise",
-      [CONFIG.BASE_URL + "work"]: "work",
-      [CONFIG.BASE_URL + "contact"]: "contact",
+      "/": "home",
+      "/home": "home",
+      "/about": "about",
+      "/services": "expertise",
+      "/work": "work",
+      "/contact": "contact",
     };
     this.currentPage = "home";
     this.navigationManager = null;
@@ -277,18 +279,38 @@ class Router {
   }
 
   init() {
-    const currentPath = window.location.pathname;
-    const page = this.routes[currentPath] || "home";
+    // Get current path and remove base path
+    const fullPath = window.location.pathname;
+    const relativePath = this.getRelativePath(fullPath);
+    const page = this.routes[relativePath] || "home";
+
     this.showPage(page);
 
     window.addEventListener("popstate", (e) => {
       const page = e.state
         ? e.state.page
-        : this.getPageFromPath(window.location.pathname);
+        : this.getPageFromPath(this.getRelativePath(window.location.pathname));
       this.showPage(page);
     });
 
     this.setupNavigation();
+  }
+
+  // Remove base path from full path to get relative path
+  getRelativePath(fullPath) {
+    if (fullPath.startsWith(this.basePath)) {
+      const relativePath = fullPath.substring(this.basePath.length);
+      return relativePath || "/";
+    }
+    return fullPath;
+  }
+
+  // Add base path to relative path to get full path
+  getFullPath(relativePath) {
+    if (relativePath === "/") {
+      return this.basePath + "/";
+    }
+    return this.basePath + relativePath;
   }
 
   getPageFromPath(path) {
@@ -320,8 +342,10 @@ class Router {
     const validPages = Object.values(this.routes);
     if (!validPages.includes(page)) return;
 
-    const newPath = this.getPathFromPage(page);
-    history.pushState({ page }, "", newPath);
+    const relativePath = this.getPathFromPage(page);
+    const fullPath = this.getFullPath(relativePath);
+
+    history.pushState({ page }, "", fullPath);
     this.showPage(page);
   }
 
