@@ -14,6 +14,7 @@ const CONFIG = {
   STATS_ANIMATION_DURATION: 30,
   MOBILE_BREAKPOINT: 768,
   EMAIL: "abdullah19303034@gmail.com",
+  BASE_URL: "/portfolio_main/",
 };
 
 // ==============================================
@@ -263,12 +264,12 @@ class NavigationManager {
 class Router {
   constructor() {
     this.routes = {
-      "/": "home",
-      "/home": "home",
-      "/about": "about",
-      "/services": "expertise",
-      "/work": "work",
-      "/contact": "contact",
+      [CONFIG.BASE_URL]: "home",
+      [CONFIG.BASE_URL + "home"]: "home",
+      [CONFIG.BASE_URL + "about"]: "about",
+      [CONFIG.BASE_URL + "services"]: "expertise",
+      [CONFIG.BASE_URL + "work"]: "work",
+      [CONFIG.BASE_URL + "contact"]: "contact",
     };
     this.currentPage = "home";
     this.navigationManager = null;
