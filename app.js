@@ -466,7 +466,14 @@ class StatsAnimator {
 class ProjectShowcase {
   constructor() {
     this.currentIndex = 0;
-    this.projects = PROJECTS_DATA;
+    this.projects = PROJECTS_DATA; // Use data as-is, no filtering/sorting
+
+    console.log(
+      "ProjectShowcase initialized with",
+      this.projects.length,
+      "projects",
+    );
+
     this.elements = {
       display: document.getElementById("projectDisplay"),
       number: document.getElementById("currentProjectNumber"),
@@ -480,34 +487,45 @@ class ProjectShowcase {
       prevBtn: document.getElementById("prevProject"),
       nextBtn: document.getElementById("nextProject"),
     };
+
+    this.init();
   }
 
   init() {
-    if (!this.elements.display) return;
+    if (!this.elements.display) {
+      console.error("Project display element not found");
+      return;
+    }
 
     this.setupEventListeners();
-    this.updateProject(0);
+    this.updateProject(this.currentIndex);
     this.setupKeyboardNavigation();
   }
 
   setupEventListeners() {
+    // Remove any existing event listeners first
     if (this.elements.nextBtn) {
-      this.elements.nextBtn.addEventListener("click", () => {
+      this.elements.nextBtn.onclick = null;
+      this.elements.nextBtn.onclick = () => {
+        console.log("Next button clicked, current index:", this.currentIndex);
         this.nextProject();
-      });
+      };
     }
 
     if (this.elements.prevBtn) {
-      this.elements.prevBtn.addEventListener("click", () => {
+      this.elements.prevBtn.onclick = null;
+      this.elements.prevBtn.onclick = () => {
+        console.log(
+          "Previous button clicked, current index:",
+          this.currentIndex,
+        );
         this.prevProject();
-      });
+      };
     }
   }
 
   setupKeyboardNavigation() {
     document.addEventListener("keydown", (e) => {
-      if (router.currentPage !== "work") return;
-
       switch (e.key) {
         case "ArrowRight":
           e.preventDefault();
@@ -522,69 +540,64 @@ class ProjectShowcase {
   }
 
   nextProject() {
+    console.log(
+      `Next: Current index ${this.currentIndex}, Total projects: ${this.projects.length}`,
+    );
+
     if (this.currentIndex < this.projects.length - 1) {
-      this.currentIndex++;
+      this.currentIndex = this.currentIndex + 1;
+      console.log(`Moving to index: ${this.currentIndex}`);
       this.updateProject(this.currentIndex);
+    } else {
+      console.log("Already at last project");
     }
   }
 
   prevProject() {
+    console.log(
+      `Prev: Current index ${this.currentIndex}, Total projects: ${this.projects.length}`,
+    );
+
     if (this.currentIndex > 0) {
-      this.currentIndex--;
+      this.currentIndex = this.currentIndex - 1;
+      console.log(`Moving to index: ${this.currentIndex}`);
       this.updateProject(this.currentIndex);
+    } else {
+      console.log("Already at first project");
     }
   }
 
   updateProject(index) {
-    if (!this.projects[index] || !this.elements.display) return;
+    console.log(`Updating to project at index ${index}`);
+
+    if (index < 0 || index >= this.projects.length) {
+      console.error(`Invalid index: ${index}`);
+      return;
+    }
 
     const project = this.projects[index];
+    console.log(`Displaying: ${project.title}`);
 
-    // Add fade out effect
-    this.elements.display.classList.add("project-fade-out");
-
-    setTimeout(() => {
-      this.updateProjectContent(project);
-      this.updateNavigationState(index);
-
-      // Remove fade out and add fade in
-      this.elements.display.classList.remove("project-fade-out");
-      this.elements.display.classList.add("project-fade-in");
-
-      setTimeout(() => {
-        this.elements.display.classList.remove("project-fade-in");
-      }, CONFIG.ANIMATION_DURATION);
-    }, 250);
-  }
-
-  updateProjectContent(project) {
-    // Update text content
+    // Update number - always show sequential (01, 02, 03...)
     if (this.elements.number) {
-      this.elements.number.textContent = project.number.padStart(2, "0");
+      this.elements.number.textContent = (index + 1)
+        .toString()
+        .padStart(2, "0");
     }
+
+    // Update type
     if (this.elements.type) {
       this.elements.type.textContent = project.type;
     }
+
+    // Update title
     if (this.elements.title) {
       this.elements.title.textContent = project.title;
     }
+
+    // Update description
     if (this.elements.description) {
       this.elements.description.textContent = project.description;
-    }
-
-    // Update tech stack
-    if (this.elements.techStack) {
-      this.elements.techStack.innerHTML = project.tech
-        .map((tech) => `<span class="tech-tag">${tech}</span>`)
-        .join("");
-    }
-
-    // Update links
-    if (this.elements.liveLink) {
-      this.elements.liveLink.href = project.links.live;
-    }
-    if (this.elements.githubLink) {
-      this.elements.githubLink.href = project.links.github;
     }
 
     // Update image
@@ -592,18 +605,237 @@ class ProjectShowcase {
       this.elements.image.src = project.image;
       this.elements.image.alt = project.title;
     }
+
+    // Update tech stack
+    if (this.elements.techStack) {
+      this.elements.techStack.innerHTML = "";
+      project.tech.forEach((tech) => {
+        const techPill = document.createElement("span");
+        techPill.classList.add("tech-pill");
+        techPill.textContent = tech;
+        this.elements.techStack.appendChild(techPill);
+      });
+    }
+
+    // Update links
+    if (this.elements.liveLink) {
+      this.elements.liveLink.href = project.links.live;
+      this.elements.liveLink.target = "_blank";
+    }
+
+    if (this.elements.githubLink) {
+      this.elements.githubLink.href = project.links.github;
+      this.elements.githubLink.target = "_blank";
+    }
+
+    // Update button states
+    this.updateNavigationButtons();
   }
 
-  updateNavigationState(index) {
+  updateNavigationButtons() {
     if (this.elements.prevBtn) {
-      this.elements.prevBtn.disabled = index === 0;
+      this.elements.prevBtn.disabled = this.currentIndex === 0;
     }
+
     if (this.elements.nextBtn) {
-      this.elements.nextBtn.disabled = index === this.projects.length - 1;
+      this.elements.nextBtn.disabled =
+        this.currentIndex === this.projects.length - 1;
+    }
+
+    console.log(
+      `Buttons updated: Prev disabled: ${
+        this.currentIndex === 0
+      }, Next disabled: ${this.currentIndex === this.projects.length - 1}`,
+    );
+  }
+
+  // Manual navigation for testing
+  goTo(index) {
+    if (index >= 0 && index < this.projects.length) {
+      this.currentIndex = index;
+      this.updateProject(this.currentIndex);
     }
   }
 }
 
+// Initialize the showcase
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof PROJECTS_DATA === "undefined" || !PROJECTS_DATA) {
+    console.error("PROJECTS_DATA not found");
+    return;
+  }
+
+  console.log("Starting ProjectShowcase initialization...");
+  console.log(
+    "PROJECTS_DATA:",
+    PROJECTS_DATA.map((p, i) => `${i}: ${p.title}`),
+  );
+
+  window.showcase = new ProjectShowcase();
+
+  // Debug functions
+  window.testSequence = () => {
+    console.log("Testing sequence...");
+    for (let i = 0; i < PROJECTS_DATA.length; i++) {
+      setTimeout(() => {
+        console.log(`Auto-navigating to project ${i + 1}`);
+        window.showcase.goTo(i);
+      }, i * 2000);
+    }
+  };
+
+  window.showProject = (num) => {
+    window.showcase.goTo(num - 1); // Convert 1-based to 0-based
+  };
+
+  console.log("ProjectShowcase ready!");
+  console.log("Debug: Use testSequence() to auto-cycle through all projects");
+  console.log("Debug: Use showProject(1-6) to jump to specific project");
+});
+
+// Initialize the showcase when the DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  // Validate PROJECTS_DATA
+  if (typeof PROJECTS_DATA === "undefined") {
+    console.error("PROJECTS_DATA is not defined");
+    return;
+  }
+
+  if (!Array.isArray(PROJECTS_DATA) || PROJECTS_DATA.length === 0) {
+    console.error("PROJECTS_DATA is not a valid array or is empty");
+    return;
+  }
+
+  console.log("Initializing ProjectShowcase...");
+  console.log("Original PROJECTS_DATA length:", PROJECTS_DATA.length);
+
+  try {
+    const showcase = new ProjectShowcase();
+
+    // Make it globally available for debugging
+    window.projectShowcase = showcase;
+
+    // Debugging utilities
+    window.showProject = (index) => showcase.goToProject(index - 1); // 1-based index for humans
+    window.listProjects = () => showcase.getAllProjects();
+    window.currentProject = () => showcase.getCurrentProject();
+
+    console.log("ProjectShowcase initialized successfully!");
+    console.log("Available debug commands:");
+    console.log("- showProject(1) - Go to first project");
+    console.log("- listProjects() - List all projects");
+    console.log("- currentProject() - Get current project info");
+  } catch (error) {
+    console.error("Error initializing ProjectShowcase:", error);
+  }
+});
+// class ProjectShowcase {
+//   constructor() {
+//     this.currentIndex = 0;
+//     this.projects = PROJECTS_DATA;
+//     this.elements = {
+//       display: document.getElementById("projectDisplay"),
+//       number: document.getElementById("currentProjectNumber"),
+//       type: document.getElementById("projectType"),
+//       title: document.getElementById("projectTitle"),
+//       description: document.getElementById("projectDescription"),
+//       techStack: document.getElementById("projectTechStack"),
+//       image: document.getElementById("projectImage"),
+//       liveLink: document.getElementById("liveLink"),
+//       githubLink: document.getElementById("githubLink"),
+//       prevBtn: document.getElementById("prevProject"),
+//       nextBtn: document.getElementById("nextProject"),
+//     };
+
+//     // Initialize the showcase
+//     this.init();
+//   }
+
+//   init() {
+//     if (!this.elements.display) return;
+
+//     this.setupEventListeners();
+//     this.updateProject(this.currentIndex);
+//     this.setupKeyboardNavigation();
+//   }
+
+//   setupEventListeners() {
+//     if (this.elements.nextBtn) {
+//       this.elements.nextBtn.addEventListener("click", () => {
+//         this.nextProject();
+//       });
+//     }
+
+//     if (this.elements.prevBtn) {
+//       this.elements.prevBtn.addEventListener("click", () => {
+//         this.prevProject();
+//       });
+//     }
+//   }
+
+//   setupKeyboardNavigation() {
+//     document.addEventListener("keydown", (e) => {
+//       // Remove the router check if you don't have a router
+//       // if (router.currentPage !== "work") return;
+
+//       switch (e.key) {
+//         case "ArrowRight":
+//           e.preventDefault();
+//           this.nextProject();
+//           break;
+//         case "ArrowLeft":
+//           e.preventDefault();
+//           this.prevProject();
+//           break;
+//       }
+//     });
+//   }
+
+//   nextProject() {
+//     this.currentIndex = (this.currentIndex + 1) % this.projects.length;
+//     this.updateProject(this.currentIndex);
+//   }
+
+//   prevProject() {
+//     this.currentIndex =
+//       (this.currentIndex - 1 + this.projects.length) % this.projects.length;
+//     this.updateProject(this.currentIndex);
+//   }
+
+//   updateProject(index) {
+//     const project = this.projects[index];
+
+//     // Update text content
+//     this.elements.number.textContent = project.number;
+//     this.elements.type.textContent = project.type;
+//     this.elements.title.textContent = project.title;
+//     this.elements.description.textContent = project.description;
+//     this.elements.image.src = project.image;
+//     this.elements.image.alt = project.title;
+
+//     // Update tech stack
+//     this.elements.techStack.innerHTML = "";
+//     project.tech.forEach((tech) => {
+//       const techPill = document.createElement("span");
+//       techPill.classList.add("tech-pill");
+//       techPill.textContent = tech;
+//       this.elements.techStack.appendChild(techPill);
+//     });
+
+//     // Update links - This is the fix for your issue
+//     this.elements.liveLink.href = project.links.live;
+//     this.elements.githubLink.href = project.links.github;
+
+//     // Add target="_blank" to open in new tab
+//     this.elements.liveLink.target = "_blank";
+//     this.elements.githubLink.target = "_blank";
+//   }
+// }
+
+// // Initialize the showcase when the DOM is loaded
+// document.addEventListener("DOMContentLoaded", () => {
+//   new ProjectShowcase();
+// });
 // ==============================================
 // Contact Form Class
 // ==============================================
